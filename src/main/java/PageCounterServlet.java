@@ -16,11 +16,29 @@ public class PageCounterServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+//        response.setContentType("text/html");
+//        pageHits++;
+//        PrintWriter out = response.getWriter();
+//        out.println("Total Page Hits: " + pageHits);
+//
+//        int reset = Integer.parseInt(request.getParameter("reset"));
+//
+//        if (request.getServletPath().equals("/page+counter?reset=0")){
+//            pageHits = 0;
+//            response.sendRedirect(getServletContext().getContextPath()+"page+counter/reset");
+//        }
+
+        String reset = request.getParameter("reset");
+        if (reset != null){
+            pageHits = 0;
+        } else {
+            pageHits++;
+        }
         response.setContentType("text/html");
-        pageHits++;
-        PrintWriter out = response.getWriter();
+        PrintWriter out  = response.getWriter();
         out.println("Total Page Hits: " + pageHits);
 
     }
+
 
 }

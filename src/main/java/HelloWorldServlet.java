@@ -13,6 +13,9 @@ public class HelloWorldServlet extends HttpServlet {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
         out.println("<h1>Hello, World!</h1>");
+//BONUS
+        String name = req.getParameter("name");
+        out.println("<h3>Howdy, " + name + "!</h3>");
     }
 
 }
